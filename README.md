@@ -96,6 +96,20 @@ A Next.js application that analyzes YouTube channels and generates AI-powered vi
 - News fetching is optional - the app will work without it
 - YouTube API has daily quotas - be mindful of usage
 
+## Troubleshooting
+
+### Reddit 403 Errors on Vercel
+
+Reddit sometimes blocks requests from serverless functions (like Vercel). The app includes:
+- Browser-like User-Agent headers
+- Fallback to old.reddit.com endpoint
+- Graceful error handling (app continues even if Reddit fails)
+
+If you still get 403 errors:
+1. The app will continue working - Reddit search is optional
+2. You can set a custom `REDDIT_USER_AGENT` in your environment variables
+3. Consider using Reddit's official API with OAuth for production (requires Reddit app registration)
+
 ## License
 
 MIT
